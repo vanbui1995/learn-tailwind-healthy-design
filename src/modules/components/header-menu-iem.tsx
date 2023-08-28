@@ -1,5 +1,5 @@
 import { IHeaderMenu } from '@/enums';
-import React from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 interface IProps {
@@ -7,12 +7,12 @@ interface IProps {
   active: boolean;
 }
 
-const HeaderMenuItem = (props: IProps) => {
+const HeaderMenuItem: FC<IProps> = (props) => {
   const { item, active } = props;
+  const path = item.path[0] !== '#' ? item.path : '#';
   return (
     <Link
-      key={item.path}
-      to={item.path}
+      to={path}
       className={`h-[49px] w-[160px] p-[8px] flex items-center gap-[8px] font-light link ${
         active ? 'link-active' : ''
       }`}

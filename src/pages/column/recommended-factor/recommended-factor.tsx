@@ -1,9 +1,5 @@
-import React, { HTMLAttributes } from 'react'
+import { IRecommendedFactor } from '@/types/health';
 
-export interface IRecommendedFactor {
-    title: string;
-    shortTitle: string;
-}
 
 const RecommendedFactor = (props: { item: IRecommendedFactor }) => {
     const { item: { title, shortTitle } } = props;

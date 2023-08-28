@@ -1,15 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 
-
 module.exports = {
   darkMode: 'class',
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      'Inter': ['Inter', 'sans-serif'],
+      Inter: ['Inter', 'sans-serif'],
       'Noto Sans JP': ['Noto Sans JP', 'sans-serif'],
     },
     colors: {
@@ -26,21 +22,21 @@ module.exports = {
       gray400: '#777',
       borderColor: '#707070',
       white: '#fff',
-      black: "#000",
+      black: '#000',
     },
     spacing: {
       sm: 640,
       md: 768,
       lg: 920,
       xl: 1280,
-      '2xl': 1536 
+      '2xl': 1536,
     },
     extend: {},
   },
   corePlugins: {
     // Remove Tailwind CSS's preflight style so it can use the antd's preflight instead (reset.css).
-    preflight: false
+    preflight: false,
   },
   // important: true, // <= This is needed to some cases that Tailwind need to override Antd
   plugins: [],
-}
+};

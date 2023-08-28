@@ -1,4 +1,5 @@
-import { IRecommendedItem } from '@/pages/column/recommended-item/recommended-item';
+
+import { IRecommendedItem } from '@/types/health';
 import { v4 as uuidv4 } from 'uuid';
 
 

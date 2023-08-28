@@ -1,10 +1,5 @@
+import { IExcercise } from "@/types/health";
 
-export interface IExcercise {
-    id: string;
-    name: string;
-    durationInMinute: number;
-    kcal: number;
-}
 
 const ExcerciseItem = (props: { excercise: IExcercise }) => {
     const { excercise: { name, durationInMinute, kcal } } = props;

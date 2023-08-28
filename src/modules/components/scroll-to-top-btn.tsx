@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
-import { useScrollbarContext } from '@/scrollbarContext/useScrollBar';
+import { useScrollbarContext } from '@/modules/scrollbar';
 
 const ScrollToTopButton = () => {
   const { scrollToTop } = useScrollbarContext();

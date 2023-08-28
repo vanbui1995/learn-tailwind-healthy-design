@@ -1,3 +1,6 @@
+import { PROGRESS_CHART_OPTIONS } from '@/enums/chart';
+import { LABEL_CHART } from '@/enums/health';
+import { ReportSet } from '@/types/health';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,78 +12,29 @@ import {
   Legend,
   ChartData,
 } from 'chart.js';
+import React from 'react';
 import { Line } from 'react-chartjs-2';
+
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const randomInt = (input: { min: number; max: number }): number => {
-  const { min, max } = input;
-  return Math.floor(Math.random() * (max - min) + min);
-};
+interface IProps {
+  dataSets: ReportSet[];
+}
 
-const backgroundColor = '#2e2e2e';
+const Chart = (props: IProps) => {
+  const { dataSets } = props;
 
-export const options = {
-  maintainAspectRatio: false,
-  responsive: true,
-  scales: {
-    x: {
-      grid: {
-        color: '#777777',
-      },
-      border: {
-        display: false,
-      },
-    },
-    y: {
-      grid: {
-        display: false,
-        color: '#777777',
-      },
-      ticks: {
-        display: false,
-      },
-    },
-  },
-  plugins: {
-    customCanvasBackgroundColor: {
-      color: backgroundColor,
-    },
-    legend: {
-      display: false,
-      position: 'top' as const,
-    },
-    title: {
-      display: false,
-      text: 'Chart.js Line Chart',
-    },
-  },
-};
+  const data = React.useMemo<ChartData<'line', number[], string>>(() => {
+    return {
+      labels: LABEL_CHART,
+      datasets: dataSets,
+    };
+  }, [dataSets]);
 
-const labels = ['6 月', '7 月', '8 月', '9 月', '10 月', '11 月', '12 月', '1 月', '2 月', '3 月', '4 月', '5 月'];
-
-export const data: ChartData<'line', number[], string> = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: labels.map(() => randomInt({ min: -1000, max: 1000 })),
-      borderColor: '#FFCC21',
-      pointBackgroundColor: '#FFCC21',
-    },
-    {
-      label: 'Dataset 2',
-      data: labels.map(() => randomInt({ min: -1000, max: 1000 })),
-      borderColor: '#8FE9D0',
-      pointBackgroundColor: '#8FE9D0',
-    },
-  ],
-};
-
-const Chart = () => {
   return (
     <div className={'w-full h-full relative'}>
       <Line
-        options={options}
+        options={PROGRESS_CHART_OPTIONS}
         data={data}
         plugins={[
           {

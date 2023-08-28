@@ -1,5 +1,5 @@
 
-import { IExcercise } from '@/pages/my-record/excercise-item/excercise-item';
+import { IExcercise } from '@/types/health';
 import { v4 as uuidv4 } from 'uuid';
 
 

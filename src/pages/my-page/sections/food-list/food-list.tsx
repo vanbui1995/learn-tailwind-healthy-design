@@ -1,6 +1,6 @@
 
-import { IRecommendedItem } from '@/pages/column/recommended-item/recommended-item';
 import { getRecommendItemAPI } from '@/services';
+import { IRecommendedItem } from '@/types/health';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import React from 'react';
 

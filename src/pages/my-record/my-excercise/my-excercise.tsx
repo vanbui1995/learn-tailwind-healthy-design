@@ -2,8 +2,9 @@ import React, { HTMLAttributes, LegacyRef, RefObject } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import * as dayjs from 'dayjs';
-import ExcerciseItem, { IExcercise } from '../excercise-item/excercise-item';
+import ExcerciseItem from '../excercise-item/excercise-item';
 import { getExcercisesAPI } from '@/services';
+import { IExcercise } from '@/types/health';
 
 const MyExcercise = () => {
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useInfiniteQuery({

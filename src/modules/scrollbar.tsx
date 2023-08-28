@@ -26,7 +26,7 @@ const intValue: IMyScrollbarContext = {
 
 const ScrollbarContext = createContext<IMyScrollbarContext>(intValue);
 
-const ScrollbarProvider = (props: { children?: ReactElement }) => {
+export const ScrollbarProvider = (props: { children?: ReactElement }) => {
   const [currentScrollTop, setCurrentScrollTop] = useState(0);
   const handleScroll = useCallback((e: UIEvent) => {
     setCurrentScrollTop((e.target as HTMLElement).scrollTop);
@@ -43,7 +43,7 @@ const ScrollbarProvider = (props: { children?: ReactElement }) => {
   );
 };
 
-const useScrollbarContext = () => {
+export const useScrollbarContext = () => {
   const { currentScrollTop, ref } = useContext(ScrollbarContext);
 
   const scrollToTop = useCallback(
@@ -66,5 +66,3 @@ const useScrollbarContext = () => {
     scrollToTop,
   };
 };
-
-export { ScrollbarProvider, useScrollbarContext };

@@ -1,26 +1,17 @@
 import React, { HTMLAttributes } from 'react'
-import RercordFactorItem, { IRecordFactor } from './record-factor/record-factor';
+import RercordFactorItem from './record-factor/record-factor';
 import { getDiariesAPI } from '@/services';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import DiaryItem, { IDiaryItem } from './diary-item/diary-item';
+import DiaryItem from './diary-item/diary-item';
 import RecordChart from './record-chart/record-chart';
 import MyExcercise from './my-excercise/my-excercise';
+import { IDiaryItem } from '@/types/health';
+import { ALL_RECORD_FACTORS } from '@/enums/health';
 
 
 
-const ALL_RECORD_FACTORS: IRecordFactor[] = [{
-    name: 'BODY RECORD',
-    explain: '自分のカラダの記録'
-}, {
-    name: 'MY EXERCISE',
-    explain: '自分の運動の記録'
-}, {
-    name: 'MY DIARY',
-    explain: '自分の日記'
-}]
 
 const MyRecordPage = () => {
-
     const {
         data,
         fetchNextPage,

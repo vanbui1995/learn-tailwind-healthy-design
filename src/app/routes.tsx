@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from 'react';
 import { Route, Routes as ReactRouterRoutes } from 'react-router-dom';
-import { useScrollbarContext } from '@/scrollbarContext/useScrollBar';
+import { useScrollbarContext } from '@/modules/scrollbar';
 import { ROUTE_PATH } from '@/enums';
 import ProtectedRoutesLayout from '../modules/common/layout/layout';
 import MyRecordPage from '@/pages/my-record/my-record';
