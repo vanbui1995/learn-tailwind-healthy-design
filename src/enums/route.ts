@@ -8,6 +8,7 @@ export interface IHeaderMenu {
   path: string;
   icon?: string;
   name: string;
+  badge?: number;
 }
 
 export const HEADER_MENUS: IHeaderMenu[] = [
@@ -25,6 +26,7 @@ export const HEADER_MENUS: IHeaderMenu[] = [
     path: '#2',
     icon: '/image/icons/icon_info.svg',
     name: 'お知らせ',
+    badge: 5,
   },
 ];
 

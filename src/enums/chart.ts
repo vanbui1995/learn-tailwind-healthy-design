@@ -1,8 +1,12 @@
 export const PROGRESS_CHART_OPTIONS = {
+  scaleFontColor: 'red',
   maintainAspectRatio: false,
   responsive: true,
   scales: {
     x: {
+      ticks: {
+        color: '#FFFFFF',
+      },
       grid: {
         color: '#777777',
       },
@@ -40,6 +44,9 @@ export const RECORD_CHART_OPTIONS = {
   responsive: true,
   scales: {
     x: {
+      ticks: {
+        color: '#FFFFFF',
+      },
       grid: {
         color: '#777777',
       },

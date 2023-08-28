@@ -1,79 +1,100 @@
-@import "tailwindcss/base";
+@import 'tailwindcss/base';
 
 @layer base {
-    .btn {
-        @apply h-[56px] flex items-center justify-center text-white bg-gradient-to-b from-primary300 to-primary400 cursor-pointer hover:from-primary400 hover:to-primary400 rounded-[5px] text-[18px] border-0
-    }
+  .btn {
+    @apply h-[56px] flex items-center justify-center text-white bg-gradient-to-b from-primary300 to-primary400 cursor-pointer hover:from-primary400 hover:to-primary400 rounded-[5px] text-[18px] border-0;
+  }
 
-    .link {
-        @apply text-white hover:text-primary500 active:text-primary500 transition-all
-    }
+  .link {
+    @apply text-white hover:text-primary500 active:text-primary500 transition-all;
+  }
 
-    .link-active {
-        @apply link text-primary500
-    }
-
+  .link-active {
+    @apply link text-primary500;
+  }
 }
 
 .hexagon-btn {
-    background: none;
-    border: none;
-    border-color: transparent;
-    cursor: pointer;
+  background: none;
+  border: none;
+  border-color: transparent;
+  cursor: pointer;
 }
 
 .hexagon-btn:focus {
-    outline: 2px dashed transparent;
+  outline: 2px dashed transparent;
 }
 
 .hexagon-btn:hover svg {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .hexagon-btn::-moz-focus-inner {
-    border: 0;
+  border: 0;
 }
 
 .hexagon-btn svg {
-    outline: none;
-    transition: transform 0.15s linear;
+  outline: none;
+  transition: transform 0.15s linear;
 }
 
 .dropdown {
-    position: relative;
+  position: relative;
 }
 
 .dropdown-header {
-    padding: 15px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dropdown-body {
-    position: absolute;
-    display: none;
-    background-color: #414141;
-    width: fit-content;
-    right: 0;
-    top: 100%;
-    z-index: 100;
-    transition: all ease-in 3s;
+  position: absolute;
+  display: none;
+  background-color: #414141;
+  width: fit-content;
+  right: 0;
+  top: 100%;
+  z-index: 100;
+  transition: all ease-in 3s;
 }
 
 .dropdown-body.open {
-    display: block;
+  display: block;
 }
 
 .dropdown-item {
-    padding: 15px 20px;
+  padding: 15px 20px;
 }
 
 .dropdown-item:hover {
-    cursor: pointer;
-    color: #FFCC21;
+  cursor: pointer;
+  color: #ffcc21;
 }
 .border {
-    border: 1px solid rgba(46, 46, 46, 0.25);
+  border: 1px solid rgba(46, 46, 46, 0.25);
 }
+.scrollable-area {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #777777;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ffcc21;
+    border-radius: 4px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffcc21;
+  }
+}
+

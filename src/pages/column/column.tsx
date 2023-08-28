@@ -11,7 +11,7 @@ const ColumnPage = () => {
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useInfiniteQuery({
     queryKey: ['recommend-item'],
     queryFn: getRecommendItemAPI,
-    getNextPageParam: (lastPage, pages) => lastPage.pageParam + 1,
+    getNextPageParam: (lastPage, pages) => (lastPage.pageParam !== 5 ? lastPage.pageParam + 1 : undefined), // Mock max page number is 5
   });
 
   const handleLoadMore = React.useCallback(
@@ -45,13 +45,11 @@ const ColumnPage = () => {
         <div className="min-w-[234px] w-[25%] max-md:w-1/3 flex-1 flex flex-col" />
       </div>
       <div className="flex mt-[26px] mb-[56px] justify-center">
-        <button
-          disabled={!hasNextPage && !isFetchingNextPage && !isFetching}
-          onClick={handleLoadMore}
-          className="btn w-[296px]"
-        >
-          コラムをもっと見る
-        </button>
+        {hasNextPage && (
+          <button disabled={isFetchingNextPage || isFetching} onClick={handleLoadMore} className="btn w-[296px]">
+            コラムをもっと見る
+          </button>
+        )}
       </div>
     </div>
   );

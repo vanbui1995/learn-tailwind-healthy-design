@@ -13,7 +13,7 @@ const Header = () => {
         </Link>
         <div className="flex flex-1 justify-end max-md:hidden">
           {HEADER_MENUS.map((item) => (
-            <HeaderMenuItem item={item} key={item.path} active={location.pathname === item.path} />
+            <HeaderMenuItem item={item} key={item.path} active={location.pathname === item.path} badge={item.badge ||0} />
           ))}
         </div>
         <div>

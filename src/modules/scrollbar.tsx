@@ -32,11 +32,11 @@ export const ScrollbarProvider = (props: { children?: ReactElement }) => {
     setCurrentScrollTop((e.target as HTMLElement).scrollTop);
   }, []);
 
-  const hanh = useRef(null);
+  const refScrollBar = useRef(null);
 
   return (
-    <ScrollbarContext.Provider value={{ currentScrollTop, setCurrentScrollTop, ref: hanh }}>
-      <Scrollbars onScroll={handleScroll} ref={hanh} className="min-h-screen !w-screen" autoHide>
+    <ScrollbarContext.Provider value={{ currentScrollTop, setCurrentScrollTop, ref: refScrollBar }}>
+      <Scrollbars onScroll={handleScroll} ref={refScrollBar} className="min-h-screen !w-screen" autoHide>
         {props?.children}
       </Scrollbars>
     </ScrollbarContext.Provider>
