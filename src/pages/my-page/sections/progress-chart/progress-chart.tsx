@@ -20,7 +20,7 @@ const ProgressChart = () => {
       >
         <div
           className={
-            "absolute top-0 left-0 w-full h-full bg-primary400 bg-[url('/public/image/picture/d01.jpg')] bg-cover bg-center"
+            "absolute top-0 left-0 w-full h-full bg-primary400 bg-[url('/image/picture/d01.jpg')] bg-cover bg-center"
           }
         />
         <div className="absolute h-[181px] w-[181px]">

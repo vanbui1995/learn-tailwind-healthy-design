@@ -1,6 +1,6 @@
 import React from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs'
 import ExcerciseItem from '../excercise-item/excercise-item';
 import { getExcercisesAPI } from '@/services';
 import { IExcercise } from '@/types/health';

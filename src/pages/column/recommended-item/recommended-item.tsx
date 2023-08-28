@@ -1,6 +1,6 @@
 
 import { IRecommendedItem } from '@/types/health';
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs'
 
 const RecommendedItem = (props: { item: IRecommendedItem }) => {
     const { item: { date, image, title, tags } } = props;

@@ -9,7 +9,7 @@ const RercordFactorItem = (props: { factor: IRecordFactor }) => {
       <div className="w-full h-full bg-dark600 opacity-75 absolute top-[0] left-[0] z-20"></div>
       <div
         className="w-full h-full bg-cover bg-center mix-blend-luminosity"
-        style={{ backgroundImage: `url(public/image/picture/MyRecommend-1.jpg)` }}
+        style={{ backgroundImage: `url(/image/picture/MyRecommend-1.jpg)` }}
       ></div>
       <div className="absolute top-[0] left-[0] z-30 w-full h-full flex flex-col justify-center items-center gap-[10px]">
         <span className="text-[25px] text-primary300">{name}</span>

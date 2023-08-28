@@ -1,5 +1,5 @@
 import { IDiaryItem } from '@/types/health';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs'
 
 const DiaryItem = (props: { diary: IDiaryItem }) => {
   const {
