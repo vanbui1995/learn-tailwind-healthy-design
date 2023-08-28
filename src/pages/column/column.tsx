@@ -31,7 +31,7 @@ const ColumnPage = () => {
 
   return (
     <div className="flex-1 max-w-[960px] mx-auto my-0">
-      <div className="py-[56px] flex flex-1 flex-row gap-[32px] max-md:flex-col max-lg:gap-[12px] max-lg:px-[12px]">
+      <div className="py-[56px] flex flex-1 flex-row gap-[32px] max-md:flex-col max-lg:gap-[12px] max-lg:px-[12px] max-md:py-[24px]">
         {ALL_RECOMMENDED_FACTORS.map((item) => (
           <RecommendedFactor item={item} key={item.title} />
         ))}
@@ -44,7 +44,7 @@ const ColumnPage = () => {
         <div className="min-w-[234px] w-[25%] max-md:w-1/3 flex-1 flex flex-col" />
         <div className="min-w-[234px] w-[25%] max-md:w-1/3 flex-1 flex flex-col" />
       </div>
-      <div className="flex mt-[26px] mb-[56px] justify-center">
+      <div className="flex mt-[26px] mb-[56px] justify-center max-md:mb-[24px]">
         {hasNextPage && (
           <button disabled={isFetchingNextPage || isFetching} onClick={handleLoadMore} className="btn w-[296px]">
             コラムをもっと見る

@@ -45,7 +45,7 @@ const FoodList = () => {
         <div className={'flex-1 min-w-[234px] w-[25%] max-md:w-1/3 relative'} />
         <div className={'flex-1 min-w-[234px] w-[25%] max-md:w-1/3 relative'} />
       </div>
-      <div className="flex mt-[26px] mb-[56px] justify-center">
+      <div className="flex mt-[26px] mb-[56px] justify-center max-md:mb-[24px]">
         {hasNextPage && (
           <button
             disabled={isFetchingNextPage || isFetching}

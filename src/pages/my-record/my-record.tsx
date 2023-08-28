@@ -32,7 +32,7 @@ const MyRecordPage = () => {
 
   return (
     <div className="flex-1 max-w-[960px] mx-auto my-0">
-      <div className="flex flex-1 gap-[48px] mt-[56px] max-lg:gap-[24px] max-lg:flex-col">
+      <div className="flex flex-1 gap-[48px] mt-[56px] max-lg:gap-[24px] max-lg:flex-col max-md:mt-[24px]">
         {ALL_RECORD_FACTORS.map((item) => (
           <RercordFactorItem factor={item} key={item.name} />
         ))}
@@ -40,7 +40,7 @@ const MyRecordPage = () => {
       <RecordChart />
       <MyExcercise />
       <section className="max-lg:p-[12px]">
-        <span className="text-[22px] leading-[27px] h-[32px] flex items-center mt-[56px]">MY DIARY</span>
+        <span className="text-[22px] leading-[27px] h-[32px] flex items-center mt-[56px] max-md:mt-[10px]">MY DIARY</span>
         <div className="flex flex-wrap gap-[12px] ">
           {diaries.map((item) => (
             <DiaryItem key={item.id} diary={item} />
@@ -51,7 +51,7 @@ const MyRecordPage = () => {
         </div>
       </section>
 
-      <div className="flex mt-[26px] mb-[56px] justify-center">
+      <div className="flex mt-[26px] mb-[56px] justify-center max-md:mb-[24px]">
         {hasNextPage && (
           <button
             disabled={isFetchingNextPage || isFetching}

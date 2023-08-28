@@ -34,7 +34,7 @@ const RecordChart = () => {
     };
   }, [data]);
   return (
-    <div className={'w-full h-[340px] p-[1rem] bg-dark600 flex flex-col mt-[56px]'}>
+    <div className={'w-full h-[340px] p-[1rem] bg-dark600 flex flex-col mt-[56px] max-md:mt-[24px]'}>
       <p className={'uppercase text-white flex items-center'}>
         <span className={'inline-block text-[15px] mr-[1rem] w-[80px]'}>Body record</span>
         <span className={'text-[22px]'}>{dayjs().format('YYYY.MM.DD')}</span>
