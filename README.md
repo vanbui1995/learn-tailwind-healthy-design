@@ -31,11 +31,11 @@ This project for practice Tailwind CSS
     │   └── my-record             # Unit tests
     ├── components                # Contains all common/general/layout components
     ├── services                  # HTTP service layer, the one connect with backend api
-    └── enums 					  # Define all enums or const variables
-    └── types 					  # Define all interface & type of the project (except the component types)
-    └── public 					  # All public resources (image, svg, font...)
-    └── main.tsx 			 	  # React entry point file (Root)
-    └── index.css 			 	  # CSS entry point file (Root)
+    └── enums 			  # Define all enums or const variables
+    └── types 			  # Define all interface & type of the project (except the component types)
+    └── public 			  # All public resources (image, svg, font...)
+    └── main.tsx 		  # React entry point file (Root)
+    └── index.css 		  # CSS entry point file (Root)
     └── tailwind.config.cjs 	  # Tailwind config, I configured all colors/spacing of the guideline via this file
     
     
