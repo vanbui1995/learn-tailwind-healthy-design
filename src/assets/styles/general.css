@@ -2,11 +2,11 @@
 
 @layer base {
   .btn {
-    @apply h-[56px] flex items-center justify-center text-white bg-gradient-to-b from-primary300 to-primary400 cursor-pointer hover:from-primary400 hover:to-primary400 rounded-[5px] text-[18px] border-0;
+    @apply h-[56px] flex items-center justify-center text-white bg-gradient-to-b from-purple300 to-purple400 cursor-pointer hover:from-purple400 hover:to-purple400 rounded-[5px] text-[18px] border-0;
   }
 
   .link {
-    @apply text-white hover:text-primary500 active:text-primary500 transition-all;
+    @apply text-white hover:text-purple400 active:text-purple400 transition-all;
   }
 
   .link-active {
@@ -53,7 +53,7 @@
 .dropdown-body {
   position: absolute;
   display: none;
-  background-color: #414141;
+  background-color: #543987;
   width: fit-content;
   right: 0;
   top: 100%;
@@ -71,7 +71,7 @@
 
 .dropdown-item:hover {
   cursor: pointer;
-  color: #ffcc21;
+  color: #35185A;
 }
 .border {
   border: 1px solid rgba(46, 46, 46, 0.25);
@@ -88,13 +88,13 @@
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #ffcc21;
+    background: #35185A;
     border-radius: 4px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #ffcc21;
+    background: #35185A;
   }
 }
 

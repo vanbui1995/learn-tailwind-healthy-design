@@ -1,6 +1,8 @@
-import { MENU_BAR_ITEMS, ROUTE_PATH } from '@/enums';
+import { LOGGED_MENU_BAR_ITEMS, MENU_BAR_ITEMS, ROUTE_PATH } from '@/enums';
 import { Fragment, MouseEventHandler, useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../common/firebase/useAuth';
+import { LoginModal, SignUpModal } from '@/pages/my-page';
 
 function useComponentVisible(initialIsVisible: boolean) {
   const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible);
@@ -40,9 +42,23 @@ function useComponentVisible(initialIsVisible: boolean) {
 
 const Dropdown = () => {
   const { ref, isComponentVisible, setIsComponentVisible, exceptionRef } = useComponentVisible(false);
-
+  const [showModalLogin, setShowModalLogin] = useState(false);
+  const [showModalRegister, setShowModalRegister] = useState(false);
+  const { currentUser, auth } = useAuth();
   return (
     <div className="dropdown">
+      <LoginModal
+        showModal={showModalLogin}
+        toggleModal={() => {
+          setShowModalLogin(false);
+        }}
+      />
+      <SignUpModal
+        showModal={showModalRegister}
+        toggleModal={() => {
+          setShowModalRegister(false);
+        }}
+      />
       <div
         role={'button'}
         className="dropdown-header"
@@ -60,10 +76,35 @@ const Dropdown = () => {
         className={`dropdown-body ${isComponentVisible && 'open'} w-[248px]`}
         ref={ref as React.LegacyRef<HTMLDivElement>}
       >
-        {MENU_BAR_ITEMS.map((item, index) => (
+        {(currentUser
+          ? [{ path: '#1', name: `Welcome ${currentUser.email}` }, ...LOGGED_MENU_BAR_ITEMS]
+          : MENU_BAR_ITEMS
+        ).map((item, index) => (
           <Fragment key={item.path}>
             {index !== 0 ? <hr className={'border'} /> : null}
-            <Link to={item.path[0] !== '#' ? item.path : '#'} className="block link dropdown-item">
+            <Link
+              onClick={(e) => {
+                e.preventDefault();
+                switch (item.path) {
+                  case '#login': {
+                    setShowModalLogin(true);
+                    break;
+                  }
+                  case '#register': {
+                    setShowModalRegister(true);
+                    break;
+                  }
+                  case '#logout': {
+                    auth.signOut();
+                    break;
+                  }
+                  default:
+                    break;
+                }
+              }}
+              to={item.path[0] !== '#' ? item.path : '#'}
+              className="block link dropdown-item"
+            >
               {item.name}
             </Link>
           </Fragment>

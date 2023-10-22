@@ -12,8 +12,6 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       light: '#FFF',
-      primary300: '#FFCC21',
-      primary400: '#FF963C',
       primary500: '#EA6C00',
       secondary300: '#8FE9D0',
       primary300_400: 'linear-gradient(33deg, rgba(255,204,33,1) 0%, rgba(255,150,60,1) 100%)',
@@ -23,6 +21,9 @@ module.exports = {
       borderColor: '#707070',
       white: '#fff',
       black: '#000',
+      purple300: '#755BB4',
+      purple400: '#35185A',
+      purple450: 'rgb(69 41 114)',
     },
     spacing: {
       sm: 640,
@@ -38,5 +39,5 @@ module.exports = {
     preflight: false,
   },
   // important: true, // <= This is needed to some cases that Tailwind need to override Antd
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };
