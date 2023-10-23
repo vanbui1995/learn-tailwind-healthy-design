@@ -19,7 +19,7 @@ const MyPage = () => {
         if (changedRecord.type === 'added' && firstLoadRef.current) {
           const newVideo = changedRecord.doc.data() as VideoCreateDto;
           // Check the video does not belong to current user, popup the notifiation
-          if (newVideo.userId !== currentUser?.uid) {
+          if (newVideo.userId && newVideo.userId !== currentUser?.uid) {
             toast.info(`New video "${newVideo.title}" has just been shared by ${newVideo.email}`);
           }
         }

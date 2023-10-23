@@ -40,7 +40,7 @@ export const SignUpModal = (props: { showModal: boolean; toggleModal: () => void
   const onSubmitHandler = async (values: FormValues) => {
     try {
       setLoading(true);
-      const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+      await createUserWithEmailAndPassword(auth, values.email, values.password);
       setLoading(false);
       toast.success('Register & login successfully');
       toggleModal();
@@ -62,7 +62,7 @@ export const SignUpModal = (props: { showModal: boolean; toggleModal: () => void
               type="submit"
               style={{ transition: 'all .15s ease' }}
             >
-              Register
+              Submit
             </button>
             <button
               className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
@@ -82,6 +82,7 @@ export const SignUpModal = (props: { showModal: boolean; toggleModal: () => void
           </label>
           <input
             {...register('email')}
+            aria-label='Email Input'
             name="email"
             type="email"
             className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
@@ -100,6 +101,7 @@ export const SignUpModal = (props: { showModal: boolean; toggleModal: () => void
           <input
             {...register('password')}
             name="password"
+            aria-label='Password Input'
             type="password"
             className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
             placeholder="Password"
@@ -115,6 +117,7 @@ export const SignUpModal = (props: { showModal: boolean; toggleModal: () => void
           </label>
           <input
             {...register('confirmPassword')}
+            aria-label='Confirm Input'
             name="confirmPassword"
             type="password"
             className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"

@@ -4,8 +4,6 @@ import { useScrollbarContext } from '@/modules/scrollbar';
 import { ToastContainer } from 'react-toastify';
 import { ROUTE_PATH } from '@/enums';
 import ProtectedRoutesLayout from '../modules/common/layout/layout';
-import MyRecordPage from '@/pages/my-record/my-record';
-import ColumnPage from '@/pages/column/column';
 import MyPage from '@/pages/my-page/my-page';
 import ScrollToTopButton from '@/modules/components/scroll-to-top-btn';
 import { AuthGuard } from '@/modules/common/firebase/authGuard';

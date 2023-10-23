@@ -14,8 +14,9 @@ import { YOUTUBE_REGEX } from '@/enums';
 import { auth, db } from '@/modules/common';
 import { Modal } from '@/modules/common';
 
-const prepareCreateDto = (metadata: Response): VideoCreateDto => {
+export const prepareCreateDto = (metadata: Response): VideoCreateDto => {
   const currentUser = auth.currentUser as UserInfo;
+
   return {
     id: uuidv4(),
     createdAt: Timestamp.now(),
@@ -27,8 +28,6 @@ const prepareCreateDto = (metadata: Response): VideoCreateDto => {
   };
 };
 
-
-
 const schema = yup.object().shape({
   link: yup
     .string()
@@ -38,7 +37,7 @@ const schema = yup.object().shape({
     .required('Required'),
 });
 
-const getYoutubeId = (url: string) => {
+export const getYoutubeId = (url: string) => {
   const match = url.match(YOUTUBE_REGEX);
   return match && match[7].length == 11 ? match[7] : null;
 };

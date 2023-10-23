@@ -1,7 +1,8 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from 'vite';
 import * as path from 'path';
-import react from '@vitejs/plugin-react-swc';
-// https://vitejs.dev/config/
+import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ command, mode }) => {
   return {
@@ -11,6 +12,11 @@ export default defineConfig(({ command, mode }) => {
         './runtimeConfig': './runtimeConfig.browser',
         '@': path.resolve(__dirname, 'src'),
       },
+    },
+    test: {
+      globals: true,
+      environment: 'happy-dom',
+      setupFiles: './src/setupTest.ts',
     },
     publicDir: 'public',
     build: {

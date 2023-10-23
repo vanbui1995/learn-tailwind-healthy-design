@@ -8,6 +8,8 @@ import { ErrorMessage } from '@hookform/error-message';
 import { auth } from '@/modules/common';
 import { Modal } from '@/modules/common';
 
+
+
 const schema = yup.object().shape({
   email: yup.string().email().required('Required'),
   password: yup.string().min(6, 'Must be at least 6 characters').required('Required'),
@@ -78,6 +80,7 @@ export const LoginModal = (props: { showModal: boolean; toggleModal: () => void 
           <input
             {...register('email')}
             type="email"
+            aria-label='Email Input'
             className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
             placeholder="Email"
             style={{ transition: 'all .15s ease' }}
@@ -94,6 +97,7 @@ export const LoginModal = (props: { showModal: boolean; toggleModal: () => void 
           <input
             {...register('password')}
             type="password"
+            aria-label='Password Input'
             className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
             placeholder="Password"
             style={{ transition: 'all .15s ease' }}
