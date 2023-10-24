@@ -3,10 +3,10 @@ import { Route, Routes as ReactRouterRoutes } from 'react-router-dom';
 import { useScrollbarContext } from '@/modules/scrollbar';
 import { ToastContainer } from 'react-toastify';
 import { ROUTE_PATH } from '@/enums';
-import ProtectedRoutesLayout from '../modules/common/layout/layout';
-import MyPage from '@/pages/my-page/my-page';
-import ScrollToTopButton from '@/modules/components/scroll-to-top-btn';
-import { AuthGuard } from '@/modules/common/firebase/authGuard';
+import { Layout } from '../modules/common';
+import { MyPage } from '@/pages/my-page';
+import { ScrollToTopButton } from '@/modules/components';
+import { AuthGuard } from '@/modules/common';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -24,12 +24,12 @@ const Routes = () => {
   return (
     <ScrollToTop>
       <>
-      <ToastContainer />
+        <ToastContainer />
         <ScrollToTopButton />
         <AuthGuard fallback={<div />}>
           <Suspense fallback={<div />}>
             <ReactRouterRoutes>
-              <Route path={ROUTE_PATH.MY_PAGE} element={<ProtectedRoutesLayout />}>
+              <Route path={ROUTE_PATH.MY_PAGE} element={<Layout />}>
                 <Route index element={<MyPage />} />
               </Route>
             </ReactRouterRoutes>

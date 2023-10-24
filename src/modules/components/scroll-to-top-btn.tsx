@@ -1,6 +1,6 @@
 import { useScrollbarContext } from '@/modules/scrollbar';
 
-const ScrollToTopButton = () => {
+export const ScrollToTopButton = () => {
   const { scrollToTop } = useScrollbarContext();
   return (
     <div className="z-30 bg-white rounded-full w-[48px] h-[48px] fixed top-[70vh] right-[96px] max-lg:right-[16px]">
@@ -15,5 +15,3 @@ const ScrollToTopButton = () => {
     </div>
   );
 };
-
-export default ScrollToTopButton;

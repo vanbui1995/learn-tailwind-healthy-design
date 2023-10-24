@@ -1,12 +1,11 @@
-import { describe, it, expect, vi } from 'vitest';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { Auth, User, UserCredential, signInWithEmailAndPassword } from 'firebase/auth';
-import * as useAuthUtil from '@/modules/common/firebase/useAuth';
+import { describe, it, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { Auth, User } from 'firebase/auth';
 import { ToastContainer } from 'react-toastify';
+import { Timestamp } from 'firebase/firestore';
+import * as useAuthUtil from '@/modules/common/firebase/useAuth';
 import { VideoCreateDto } from '@/types';
-import { Timestamp, onSnapshot } from 'firebase/firestore';
-import MyPage from './my-page';
-import { auth } from '@/modules/common';
+import { MyPage } from '../my-page';
 
 describe('<MyPage>', () => {
   beforeEach(() => {

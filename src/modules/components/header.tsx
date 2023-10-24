@@ -7,7 +7,7 @@ import HeaderMenuItem from './header-menu-iem';
 import { useAuth } from '../common/firebase/useAuth';
 import { SharePostModal } from '@/pages/my-page';
 
-const Header = () => {
+export const Header = () => {
   const location = useLocation();
   const [openShareModal, setOpenShareModal] = useState<boolean>(false);
   const { currentUser } = useAuth();

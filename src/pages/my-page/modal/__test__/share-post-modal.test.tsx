@@ -28,9 +28,11 @@ describe('prepareCreateDto', () => {
     vi.setSystemTime(date);
     vi.clearAllMocks();
   });
+
   afterEach(() => {
     vi.useRealTimers();
   });
+
   it('transform correctly', () => {
     vi.spyOn(uuid, 'v4').mockReturnValue('bbc815d8-22de-47dd-a345-01d54af19bcf');
     vi.mock('firebase/auth', () => {
@@ -117,6 +119,7 @@ describe('<SharePostModal>', async () => {
     });
     fireEvent.click(screen.getByText('Submit'));
     await screen.findByText('Add new youtube video "The American Civil War - OverSimplified (Part 1)" successfully');
+
     expect(mockSetDoc).toBeCalledWith(undefined, {
       id: 'bbc815d8-22de-47dd-a345-01d54af19bcf',
       createdAt: undefined,

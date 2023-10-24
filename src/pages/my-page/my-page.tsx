@@ -1,13 +1,12 @@
 import { db } from '@/modules/common';
 import { collection, onSnapshot, query, orderBy, limit } from 'firebase/firestore';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Feed } from './feed';
 import { VideoCreateDto } from '@/types/youtube';
 import { useAuth } from '@/modules/common';
 import { toast } from 'react-toastify';
-import { Unsubscribe } from 'firebase/auth';
 
-const MyPage = () => {
+export const MyPage = () => {
   const [videos, setVideos] = useState<VideoCreateDto[]>([]);
   const { currentUser } = useAuth();
   const [firstLoad, setFirstLoad] = useState<boolean>(false);
@@ -36,7 +35,7 @@ const MyPage = () => {
           if (changedRecord.type === 'added' && firstLoad) {
             const newVideo = changedRecord.doc.data() as VideoCreateDto;
             // Check the video does not belong to current user, popup the notifiation
-            if (newVideo.userId !== currentUser?.uid && !videos.some(v => v.id === newVideo.id)) {
+            if (newVideo.userId !== currentUser?.uid && !videos.some((v) => v.id === newVideo.id)) {
               toast.info(`New video "${newVideo.title}" has just been shared by ${newVideo.email}`);
             }
           }
@@ -59,5 +58,3 @@ const MyPage = () => {
     </div>
   );
 };
-
-export default MyPage;

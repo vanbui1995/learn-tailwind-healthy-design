@@ -9,10 +9,12 @@ describe('<SignUpModal>', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
+
   it('render without error', () => {
     render(<SignUpModal showModal toggleModal={() => null} />);
     expect(screen.getByText('Register')).toBeInTheDocument();
   });
+
   it('validation work properly', async () => {
     render(<SignUpModal showModal toggleModal={() => null} />);
     fireEvent.click(screen.getByText('Submit'));
@@ -46,6 +48,7 @@ describe('<SignUpModal>', () => {
       expect(emailError).toBe(null);
     });
   });
+
   it('submit successfully', async () => {
     vi.mock('firebase/auth');
     const mockedSignUp = vi.mocked(createUserWithEmailAndPassword).mockResolvedValueOnce({} as UserCredential);

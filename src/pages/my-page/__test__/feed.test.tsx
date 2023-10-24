@@ -1,8 +1,5 @@
-import { describe, it, expect, vi } from 'vitest';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { UserCredential, signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@/modules/common';
-import { ToastContainer } from 'react-toastify';
+import { describe, it, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
 import { Feed } from '../feed';
 import { VideoCreateDto } from '@/types';
 import { Timestamp } from 'firebase/firestore';
@@ -13,9 +10,11 @@ describe('<Feed>', () => {
     vi.useFakeTimers();
     vi.setSystemTime(date);
   });
+
   afterEach(() => {
     vi.useRealTimers();
   });
+
   it('render without error', () => {
     const video: VideoCreateDto = {
       createdAt: Timestamp.now(),
