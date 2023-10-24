@@ -61,17 +61,17 @@ export const SharePostModal = (props: { showModal: boolean; toggleModal: () => v
   const onSubmitHandler = async (values: FormValues) => {
     try {
       setLoading(true);
-      setLoading(false);
       const youtubeLink = getYoutubeId(values.link);
       const metadata = await getYoutubeMetadata(youtubeLink as string);
       const data = prepareCreateDto(metadata);
-      const videoId = await setDoc(doc(db, 'videos', data.id), data);
+      await setDoc(doc(db, 'videos', data.id), data);
       toast.success(`Add new youtube video "${data.title}" successfully`);
       toggleModal();
       reset();
+      setLoading(false);
     } catch (error) {
       setLoading(false);
-      toast.error('Login failed, please try again!');
+      toast.error('Add new youtube video failed, please try again!');
     }
   };
 
@@ -107,7 +107,7 @@ export const SharePostModal = (props: { showModal: boolean; toggleModal: () => v
           </label>
           <input
             {...register('link')}
-            aria-label='Youtube link'
+            aria-label="Youtube link"
             type="text"
             className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
             placeholder="https://www.youtube.com/watch?v"

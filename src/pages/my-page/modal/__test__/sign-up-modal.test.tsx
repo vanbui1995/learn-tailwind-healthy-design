@@ -45,7 +45,6 @@ describe('<SignUpModal>', () => {
       const emailError = screen.queryByText('Passwords must match');
       expect(emailError).toBe(null);
     });
-    
   });
   it('submit successfully', async () => {
     vi.mock('firebase/auth');
