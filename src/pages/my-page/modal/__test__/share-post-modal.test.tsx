@@ -1,11 +1,9 @@
 import { describe, it, expect, vi } from 'vitest';
 import * as uuid from 'uuid';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { LoginModal } from '../login-modal';
-import { Auth, User, UserCredential, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@/modules/common';
+import { Auth } from 'firebase/auth';
 import { ToastContainer } from 'react-toastify';
-import { SharePostModal, prepareCreateDto } from '../share-post-modal';
+import { SharePostModal, prepareCreateDto, getYoutubeId } from '../share-post-modal';
 import { Response } from '@/types';
 import { Timestamp } from 'firebase/firestore';
 
@@ -17,7 +15,7 @@ describe('prepareCreateDto', () => {
   });
   afterEach(() => {
     vi.useRealTimers();
-  })
+  });
   it('transform correctly', () => {
     vi.spyOn(uuid, 'v4').mockReturnValue('bbc815d8-22de-47dd-a345-01d54af19bcf');
     vi.mock('firebase/auth', () => {
@@ -66,5 +64,28 @@ describe('<SharePostModal>', () => {
     render(<SharePostModal showModal toggleModal={() => null} />);
   });
 
-  it('validate youtube link', () => {});
+  it('validate youtube link', async () => {
+    render(<SharePostModal showModal toggleModal={() => null} />);
+    fireEvent.click(screen.getByText('Submit'));
+    await screen.findByText('Invalid youtube link');
+    fireEvent.input(screen.getByLabelText('Youtube link'), { target: { value: 'https://www.google.com/2323' } });
+    await screen.findByText('Invalid youtube link');
+    fireEvent.input(screen.getByLabelText('Youtube link'), { target: { value: 'https://www.youtube.com/watch?v=tsxmyL7TUJg' } });
+    await waitFor(() => {
+      const youtubeLinkValidError = screen.queryByText('Invalid youtube link');
+      expect(youtubeLinkValidError).toBe(null);
+    });
+  });
+});
+
+describe('getYoutubeId', () => {
+  it('extract correctly the id', () => {
+    expect(getYoutubeId('https://www.youtube.com/watch?v=tsxmyL7TUJg')).toBe('tsxmyL7TUJg');
+    expect(getYoutubeId('https://www.youtube.com/watch?v=sL3GsB-2_ek&ab_channel=ToFluency')).toBe('sL3GsB-2_ek');
+  });
+
+  it('return null when the youtube link is invalid', () => {
+    expect(getYoutubeId('https://www.youtube.com')).toBe(null);
+    expect(getYoutubeId('https://www.google.com/2323')).toBe(null);
+  });
 });
