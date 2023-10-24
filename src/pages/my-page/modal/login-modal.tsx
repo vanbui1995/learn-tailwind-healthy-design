@@ -70,7 +70,7 @@ export const LoginModal = (props: { showModal: boolean; toggleModal: () => void 
         showModal={showModal}
         toggleModal={toggleModal}
       >
-        <div className="relative mb-3 w-[500px]">
+        <div className="relative mb-3 w-[500px] max-md:w-[calc(100vw-80px)]">
           <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
             Email
           </label>

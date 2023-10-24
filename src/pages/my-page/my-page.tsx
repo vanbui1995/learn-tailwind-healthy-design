@@ -49,7 +49,7 @@ export const MyPage = () => {
 
   return (
     <div className="flex flex1 justify-center bg-[rgb(198,202,241)]">
-      <div className="w-[800px] p-[30px] flex flex-col gap-[30px]">
+      <div className="w-full p-[30px] flex flex-col gap-[30px] max-w-[990px]">
         <h1>Shared Videos:</h1>
         {videos.map((video) => (
           <Feed key={video.id} video={video} />
