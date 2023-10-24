@@ -46,7 +46,7 @@ const MyPage = () => {
         unsubscribeNewVideo();
       };
     }
-  }, [firstLoad]);
+  }, [firstLoad, currentUser?.uid]);
 
   return (
     <div className="flex flex1 justify-center bg-[rgb(198,202,241)]">
